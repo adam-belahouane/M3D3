@@ -27,7 +27,7 @@ const searchImg = () => {
                                         <button type="button" class="btn btn-sm btn-outline-secondary">
                                           View
                                         </button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">
+                                        <button onclick="hide(this.closest('.col-md-4'))" type="button" class="btn btn-sm btn-outline-secondary">
                                           Hide
                                         </button>
                                       </div>
@@ -39,7 +39,9 @@ const searchImg = () => {
                 row.appendChild(col)
             })
         })
-        .then()
+        .catch(() => {
+            console.log('An Error')
+        })
 }
 
 const api = (search) => {
@@ -52,6 +54,12 @@ const api = (search) => {
     })
 }
 
+const hide = (e) => {
+    e.remove()
+    // there is a "this" key work that is getting the event 
+    // (this) key onto the function is targetinging that specific element
+    // ".closest"
+}
 
 window.onload = function () {
     // searchImg()
